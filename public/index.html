@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/bundle.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Countries</h1>
+        <p>Total Population of all API Countries: {{ totalPopulation }}</p>
+
+        <form id="select-country">
+            <h3>Pick a Country</h3>
+            <label>select a country to show information</label>
+            <select v-model="selectedCountry">
+                <option v-for="(country, index) in countries" :value="country">{{ country.name }}</option>
+            </select>
+        </form>
+        <p v-if="selectedCountry">{{ selectedCountry.name }}</p>
+        <!-- <img :src="country.flag">  -->
+        <button v-on:click="saveNewFavourite">Add to Favourites</button>
+        <h2>Favourite Countries List</h2>
+        <ul >
+            <li v-for="(country, index) in favourites">{{ country.name }}</li>
+        </ul>
+    </div>
+</body>
+</html>
